@@ -7,21 +7,21 @@
 // in vendor, which are never wrapped in imports and
 // therefore are always executed.
 
-// Import dependencies
-//
+// Dependencies:
 // If you no longer want to use a dependency, remember
 // to also remove its path from "config.paths.watched".
 import "phoenix_html"
-import { autoscroll } from 'js/helpers.js';
 
-// Import local files
-//
-// Local files can be imported directly using relative
-// paths "./socket" or full ones "web/static/js/socket".
-
+// Local files
+import { autoscroll } from "js/helpers.js"
 import socket from "./socket"
 
 var channel = socket.channel('room:lobby', {}); // connect to chat "room"
+channel.join()
+  .receive("ok", resp => { console.log("Joined successfully", resp) })
+  .receive("error", resp => { console.log("Unable to join", resp) })
+
+
 
 channel.on('shout', function (payload) { // listen to the 'shout' event
   var li = document.createElement("li"); // create new list item DOM element
@@ -31,12 +31,11 @@ channel.on('shout', function (payload) { // listen to the 'shout' event
   autoscroll();
 });
 
-channel.join(); // join the channel.
+//channel.join(); // join the channel.
 
-
-var ul = document.getElementById('msg-list');        // list of messages.
-var name = document.getElementById('name');          // name of message sender
-var msg = document.getElementById('msg');            // message input field
+let ul = document.getElementById('msg-list');        // list of messages.
+let name = document.getElementById('name');          // name of message sender
+let msg = document.getElementById('msg');            // message input field
 
 // "listen" for the [Enter] keypress event to send a message:
 msg.addEventListener('keypress', function (event) {
@@ -47,4 +46,8 @@ msg.addEventListener('keypress', function (event) {
     });
     msg.value = '';         // reset the message input field for next message.
   }
+});
+
+window.addEventListener("beforeunload", function (e) {
+  channel.push("leave", { reason: "bye"});
 });

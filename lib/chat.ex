@@ -1,4 +1,5 @@
 defmodule Chat do
+  use Application
   @moduledoc """
   Chat keeps the contexts that define your domain
   and business logic.

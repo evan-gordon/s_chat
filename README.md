@@ -5,14 +5,22 @@
 https://github.com/dwyl/phoenix-chat-example
 
 ## TODO
-
-  * OAuth, try guardian?
-    https://github.com/ueberauth/guardian
-    https://medium.freecodecamp.org/authentication-using-elixir-phoenix-f9c162b2c398
-  * User names
+  * incoming messages are on left side of chat window
+  * Message timestamps
+  * Time when read
+  * Edut user names button
+  * Emojis
+  * Giphy integration
+  * Notification sounds
+  * Chat as a sidebar
+  * Dark and Light themes
   * Replace brunch with webpack
   * Rooms at /r
-  * Watch params so i can watch a stream?
+  * Private rooms at /p ?
+  * Watch params so i can watch a stream
+  * desktop c# app
+  * save only last 5 or so messages for a room to database?
+  * encrypt chat option!!!
 
 
 To start your Phoenix server:
@@ -29,3 +37,10 @@ Now you can visit [`localhost:4000`](http://localhost:4000) from your browser.
   * Phoenix Docs: https://hexdocs.pm/phoenix
   * Source: https://github.com/phoenixframework/phoenix
   * Deployment guides: http://www.phoenixframework.org/docs/deployment
+
+
+## Future project ideas
+
+  * OAuth, try guardian?
+    https://github.com/ueberauth/guardian
+    https://medium.freecodecamp.org/authentication-using-elixir-phoenix-f9c162b2c398

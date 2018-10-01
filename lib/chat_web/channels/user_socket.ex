@@ -19,8 +19,9 @@ defmodule ChatWeb.UserSocket do
   #
   # See `Phoenix.Token` documentation for examples in
   # performing token verification on connect.
-  def connect(_params, socket) do
-    {:ok, socket}
+  def connect(%{"token" => token, "user_id" => id}, socket) do
+    socket = assign(socket, :user_id, id)
+    {:ok, assign(socket, :token, token)}
   end
 
   # Socket id's are topics that allow you to identify all sockets for a given user:

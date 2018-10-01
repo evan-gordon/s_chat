@@ -10,6 +10,8 @@ defmodule Chat.Application do
     children = [
       # Start the Ecto repository
       supervisor(Chat.Repo, []),
+      # New worker
+      worker(Chat.ChannelMonitor, [:c_monitor]),
       # Start the endpoint when the application starts
       supervisor(ChatWeb.Endpoint, []),
       # Start your own worker by calling: Chat.Worker.start_link(arg1, arg2, arg3)

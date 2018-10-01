@@ -10,7 +10,6 @@
 
 /* Space out content a bit */
 body, form, ul, table {
-  margin-top: 20px;
   margin-bottom: 20px;
 }
 
@@ -19,15 +18,23 @@ body, form, ul, table {
 
 /* Custom page header */
 .header {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  min-height: 52px;
+  height: 52px;
+  background-color: #8a25b1;
   border-bottom: 1px solid #e5e5e5;
 }
 .logo {
-  width: 519px;
-  height: 71px;
+  margin-top: 1px;
+  padding: 0;
+  width: 170px;
+  height: 47px;
   display: inline-block;
   margin-bottom: 1em;
-  background-image: url("/images/phoenix.png");
-  background-size: 519px 71px;
+  background-image: url("/images/wschat.png");
+  background-size: 100%;
 }
 
 /* Everything but the jumbotron gets side spacing for mobile first views */
