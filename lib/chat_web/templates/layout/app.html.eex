@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="full-page">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -11,15 +11,16 @@
     <link rel="stylesheet" href="<%= static_path(@conn, "/css/app.css") %>">
   </head>
 
-  <body>
+  <body class="full-page">
     <header class="header">
       <div class="logo"></div>
     </header>
-    <div class="container">
 
+    <div style="min-height: 100%; margin: 0; padding: 0;">
+      <!--
       <p class="alert alert-info" role="alert"><%= get_flash(@conn, :info) %></p>
       <p class="alert alert-danger" role="alert"><%= get_flash(@conn, :error) %></p>
-
+      -->
       <main role="main">
         <%= render @view_module, @view_template, assigns %>
       </main>

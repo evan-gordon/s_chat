@@ -1,14 +1,21 @@
 <!-- The list of messages will appear here: -->
-<ul id='msg-list' class='row' 
-  style='list-style: none; height:200px; max-height:600; overflow-y: scroll; padding: 10px;'>
-</ul>
-
-<!-- Input Bar -->
-<div class="row">
-  <div class="col-xs-3">
-    <input type="text" id="name" class="form-control" placeholder="Your Name" autofocus>
+<div class="flex-row-container">
+  <div class="flex-row" style="min-width: 50px">
+    <!-- Other stuff -->
   </div>
-  <div class="col-xs-9">
-    <input type="text" id="msg" class="form-control" placeholder="Your Message">
+  <div class="chat-bar flex-row">
+    <!-- Chat messages -->
+    <ul id='msg-list' class='flex-column overflow-box'>
+    </ul>
+    <!-- Input Bar -->
+    <div class="flex-column">
+      <div class="col-xs-3">
+        <input type="text" id="name" class="form-control" placeholder="Your Name" autofocus>
+      </div>
+      <div class="col-xs-9">
+        <input type="text" id="msg" class="form-control" placeholder="Your Message">
+      </div>
+    </div>
+
   </div>
 </div>
