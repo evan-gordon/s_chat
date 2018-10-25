@@ -5,14 +5,15 @@
 https://github.com/dwyl/phoenix-chat-example
 
 ## TODO
-  * incoming messages are on left side of chat window
+  * Upgrade to phoenix 1.4
+  * incoming messages are on left side of chat window?
   * Message timestamps
   * Time when read
-  * Edut user names button
+  * Edit user names button
   * Emojis
   * Giphy integration
   * Notification sounds
-  * Chat as a sidebar
+  * <s>Chat as a sidebar</s>
   * Dark and Light themes
   * Replace brunch with webpack
   * Rooms at /r
@@ -21,6 +22,7 @@ https://github.com/dwyl/phoenix-chat-example
   * desktop c# app
   * save only last 5 or so messages for a room to database?
   * encrypt chat option!!!
+  * containerize application
 
 
 To start your Phoenix server:

@@ -4,12 +4,17 @@
 // To use Phoenix channels, the first step is to import Socket
 // and connect at the socket path in "lib/web/endpoint.ex":
 import {Socket} from "phoenix"
+import { generate_uid } from "js/helpers.js"
+
 
 // splitting chat into rooms:
 // http://whatdidilearn.info/2018/03/04/using-channels-in-phoenix.html
-let uid = 'penguin';
+let name = document.getElementById("name");
+if(name.value.length == 0) {
+  name.value = generate_uid();
+}
 let token = 'my_token' // window.userToken
-let socket = new Socket("/socket", {params: {token: token, user_id: uid}})
+let socket = new Socket("/socket", {params: {token: token, user_id: name.value}})
 
 // When you connect, you'll often need to authenticate the client.
 // For example, imagine you have an authentication plug, `MyAuth`,

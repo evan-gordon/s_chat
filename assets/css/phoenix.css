@@ -18,6 +18,10 @@
   padding-left: 15px;
 }
 
+b, li {
+  word-wrap: break-word;
+}
+
 /* Main marketing message */
 .jumbotron {
   text-align: center;

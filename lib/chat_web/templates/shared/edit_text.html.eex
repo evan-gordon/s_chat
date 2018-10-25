@@ -1,0 +1,9 @@
+<!-- save version -->
+<%# <div style="padding-right: 10px">
+  <input type="text" id="name" class="minimalist-input" placeholder="Your Name" autofocus>
+  <img class="chat-image-icon" src="svg/correct-save.svg">
+</div> %>
+<div style="padding-right: 10px">
+  <input type="text" id="name" class="minimalist-input" placeholder="Your Name" autofocus>
+  <img id="save-button" class="chat-image-icon" src="svg/pencil-edit.svg">
+</div>

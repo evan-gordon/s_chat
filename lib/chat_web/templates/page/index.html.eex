@@ -5,16 +5,12 @@
   </div>
   <div class="chat-bar flex-row">
     <!-- Chat messages -->
-    <ul id='msg-list' class='flex-column overflow-box'>
-    </ul>
+    <div class='flex-column overflow-box'>
+      <ul id='msg-list' class="chat-feed"></ul>
+    </div>
     <!-- Input Bar -->
-    <div class="flex-column">
-      <div class="col-xs-3">
-        <input type="text" id="name" class="form-control" placeholder="Your Name" autofocus>
-      </div>
-      <div class="col-xs-9">
+    <div class="flex-column message-box">
         <input type="text" id="msg" class="form-control" placeholder="Your Message">
-      </div>
     </div>
 
   </div>

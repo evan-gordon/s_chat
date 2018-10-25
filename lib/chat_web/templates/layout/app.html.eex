@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en" class="full-page">
   <head>
+    <!-- Icon made by [https://www.flaticon.com/free-icon/pencil-edit-button_61456] from www.flaticon.com  -->
+    <!-- Icon made by [https://www.flaticon.com/authors/dave-gandy] from www.flaticon.com -->
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -11,17 +13,19 @@
     <link rel="stylesheet" href="<%= static_path(@conn, "/css/app.css") %>">
   </head>
 
-  <body class="full-page">
+  <body class="full-page" style="">
     <header class="header">
       <div class="logo"></div>
+      <%= render ChatWeb.SharedView, "edit_text.html", editing: true%>
+      <!--%= render "_edit_text.html", editing: true, conn: @conn %-->
     </header>
 
-    <div style="min-height: 100%; margin: 0; padding: 0;">
+    <div style="height: 100%; min-height: 100%; margin: 0; padding-top: 52px;">
       <!--
       <p class="alert alert-info" role="alert"><%= get_flash(@conn, :info) %></p>
       <p class="alert alert-danger" role="alert"><%= get_flash(@conn, :error) %></p>
       -->
-      <main role="main">
+      <main role="main" style="height: 100%; margin: 0; padding: 0;">
         <%= render @view_module, @view_template, assigns %>
       </main>
 
