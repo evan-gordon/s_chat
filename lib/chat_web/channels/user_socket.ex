@@ -4,10 +4,6 @@ defmodule ChatWeb.UserSocket do
   ## Channels
   channel "room:lobby", ChatWeb.RoomChannel
 
-  ## Transports
-  transport :websocket, Phoenix.Transports.WebSocket
-  # transport :longpoll, Phoenix.Transports.LongPoll
-
   # Socket params are passed from the client and can
   # be used to verify and authenticate a user. After
   # verification, you can put default assigns into
@@ -19,7 +15,7 @@ defmodule ChatWeb.UserSocket do
   #
   # See `Phoenix.Token` documentation for examples in
   # performing token verification on connect.
-  def connect(%{"token" => token, "user_id" => id}, socket) do
+  def connect(%{"token" => token, "user_id" => id}, socket, _connect_info) do
     socket = assign(socket, :user_id, id)
     {:ok, assign(socket, :token, token)}
   end

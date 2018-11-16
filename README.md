@@ -5,8 +5,9 @@
 https://github.com/dwyl/phoenix-chat-example
 
 ## TODO
-  * Upgrade to phoenix 1.4
+  * Upgrade to phoenix 1.4 - replace brunch w/ webpack
   * Upgrate to Elixir 1.9
+  * <s>voting system,</s> for what to watch, maybe more
   * Incoming messages are on left side of chat window?
   * Message timestamps
   * Time when read
@@ -16,7 +17,6 @@ https://github.com/dwyl/phoenix-chat-example
   * Notification sounds
   * <s>Chat as a sidebar</s>
   * Dark and Light themes
-  * Replace brunch with webpack
   * Rooms at /r
   * Private rooms at /p ?
   * Watch params so i can watch a stream
