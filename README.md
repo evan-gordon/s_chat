@@ -5,7 +5,7 @@
 https://github.com/dwyl/phoenix-chat-example
 
 ## TODO
-  * Upgrade to phoenix 1.4 - replace brunch w/ webpack
+  * <s>Upgrade to phoenix 1.4 - replace brunch w/ webpack</s>
   * Upgrate to Elixir 1.9
   * <s>voting system,</s> for what to watch, maybe more
   * Incoming messages are on left side of chat window?

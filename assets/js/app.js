@@ -10,10 +10,11 @@
 // Dependencies:
 // If you no longer want to use a dependency, remember
 // to also remove its path from "config.paths.watched".
+import css from '../css/app.css';
 import "phoenix_html"
 
 // Local files
-import { autoscroll } from "js/helpers.js"
+import { autoscroll } from "./helpers.js"
 import socket from "./socket"
 
 var channel = socket.channel('room:lobby', {}); // connect to chat "room"

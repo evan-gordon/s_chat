@@ -4,7 +4,7 @@
 // To use Phoenix channels, the first step is to import Socket
 // and connect at the socket path in "lib/web/endpoint.ex":
 import {Socket} from "phoenix"
-import { generate_uid } from "js/helpers.js"
+import { generate_uid } from "./helpers.js"
 
 
 // splitting chat into rooms:

@@ -10,6 +10,9 @@ config :chat,
   ecto_repos: [Chat.Repo],
   hosts: ["youtube.com", "twitch.tv"]
 
+# Use Jason for JSON parsing in Phoenix
+config :phoenix, :json_library, Jason
+
 # Configures the endpoint
 config :chat, ChatWeb.Endpoint,
   url: [host: "localhost"],
