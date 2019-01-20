@@ -6,7 +6,8 @@ https://github.com/dwyl/phoenix-chat-example
 
 ## TODO
   * Upgrade to phoenix 1.4
-  * incoming messages are on left side of chat window?
+  * Upgrate to Elixir 1.9
+  * Incoming messages are on left side of chat window?
   * Message timestamps
   * Time when read
   * Edit user names button
@@ -19,10 +20,10 @@ https://github.com/dwyl/phoenix-chat-example
   * Rooms at /r
   * Private rooms at /p ?
   * Watch params so i can watch a stream
-  * desktop c# app
-  * save only last 5 or so messages for a room to database?
-  * encrypt chat option!!!
-  * containerize application
+  * Desktop c# app
+  * Save only last 5 or so messages for a room to database?
+  * Encrypt chat option!!!
+  * Containerize application
 
 
 To start your Phoenix server:
