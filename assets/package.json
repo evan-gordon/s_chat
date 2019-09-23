@@ -13,7 +13,7 @@
     "@babel/core": "^7.0.0",
     "@babel/preset-env": "^7.0.0",
     "babel-loader": "^8.0.0",
-    "bootstrap-sass": "^3.3.7",
+    "bootstrap-sass": "^3.4.1",
     "copy-webpack-plugin": "^4.5.0",
     "css-loader": "^0.28.11",
     "file-loader": "^2.0.0",
