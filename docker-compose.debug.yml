@@ -1,0 +1,10 @@
+version: '2.1'
+
+services:
+  s_chat:
+    image: s_chat
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - 4000:4000

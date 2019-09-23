@@ -13,14 +13,14 @@
     <link rel="stylesheet" href="<%= static_path(@conn, "/css/app.css") %>">
   </head>
 
-  <body class="full-page" style="">
+  <body class="full-page">
     <header class="header">
       <div class="logo"></div>
       <%= render ChatWeb.SharedView, "edit_text.html", editing: true%>
       <!--%= render "_edit_text.html", editing: true, conn: @conn %-->
     </header>
 
-    <div style="height: 100%; min-height: 100%; margin: 0; padding-top: 52px;">
+    <div class="reactive-container">
       <!--
       <p class="alert alert-info" role="alert"><%= get_flash(@conn, :info) %></p>
       <p class="alert alert-danger" role="alert"><%= get_flash(@conn, :error) %></p>
