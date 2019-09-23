@@ -1,4 +1,5 @@
 defmodule Chat.Voting.PollBooth do
+  # Look into turning this into a genstate machine
   use GenServer
   require Logger
   @name :general
@@ -9,7 +10,7 @@ defmodule Chat.Voting.PollBooth do
     if(GenServer.call(@name, :voting)) do
       :error
     else
-      GenServer.cast(@name, {:start, link})
+      GenServer.cast(@name, {:start, link, self()})
       Logger.debug("STARTING POLL: #{link}")
       :ok
     end
@@ -38,19 +39,22 @@ defmodule Chat.Voting.PollBooth do
 
   @impl true
   def handle_cast({:vote, :no}, state) do
-    %{:link => link, :yes => y, :no => n} = Map.get(state, :watch)
-    {:noreply, Map.put(state, :watch, %{:link => link, :yes => y, :no => n + 1})}
+    %{:link => _link, :no => n} = Map.get(state, :watch)
+    # Map.put(state, :watch, %{:link => link, :yes => y, :no => n + 1})
+    {:noreply, put_in(state, [:watch, :no], n + 1)}
   end
 
   @impl true
-  def handle_cast({:start, link}, state) do
-    timer()
-    {:noreply, Map.put(state, :watch, %{:link => link, :yes => 0, :no => 0})}
+  def handle_cast({:start, link, pid}, state) do
+    Process.send_after(self(), :end, 20_000)
+    {:noreply, Map.put(state, :watch, %{link: link, pid: pid, yes: 0, no: 0})}
   end
 
   @impl true
   def handle_info(:end, state) do
-    Logger.debug("VOTE ENDED WITH: #{inspect(Map.get(state, :watch))}")
+    %{:link => _link} = map = Map.get(state, :watch)
+    Logger.debug("vote_ended", yes: map[:yes], no: map[:no])
+    GenServer.cast(map[:pid], {:vote_result, map})
     {:noreply, Map.delete(state, :watch)}
   end
 
@@ -68,6 +72,4 @@ defmodule Chat.Voting.PollBooth do
   def handle_call(:keys, _from, state) do
     {:reply, Map.keys(state), state}
   end
-
-  defp timer(interval \\ 20000), do: Process.send_after(self(), :end, interval)
 end

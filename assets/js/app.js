@@ -10,8 +10,8 @@
 // Dependencies:
 // If you no longer want to use a dependency, remember
 // to also remove its path from "config.paths.watched".
-import css from '../css/app.css';
 import "phoenix_html"
+import css from '../css/app.scss';
 
 // Local files
 import { autoscroll } from "./helpers.js"
@@ -25,11 +25,29 @@ channel.join()
 
 
 channel.on('shout', function (payload) { // listen to the 'shout' event
-  var li = document.createElement("li"); // create new list item DOM element
-  var name = payload.name;    // get name from payload or set default
-  li.innerHTML = '<b>' + name + '</b>: ' + payload.message; // set li contents
-  ul.appendChild(li);                    // append to list
-  autoscroll();
+  console.log(payload)
+  switch (payload["type"]) {
+    case "chat":
+      var li = document.createElement("li"); // create new list item DOM element
+      var name = payload.name;    // get name from payload or set default
+      li.innerHTML = '<b>' + name + '</b>: ' + payload.message; // set li contents
+      ul.appendChild(li);                    // append to list
+      autoscroll();
+      break;
+    case "video-player":
+      console.log("adding youtube video to page")
+      console.log(payload)
+      vc.innerHTML = '';
+      var iframe = document.createElement("iframe");
+      iframe.setAttribute("id", "youtube-player");
+      iframe.setAttribute("src", "https://www.youtube.com/embed/" + payload["hash"]);
+      iframe.setAttribute("frameBorder", "0");
+      iframe.setAttribute("allow", "accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture");
+      vc.appendChild(iframe);
+      break;
+    default:
+      null
+  }
 });
 
 //channel.join(); // join the channel.
@@ -37,6 +55,7 @@ channel.on('shout', function (payload) { // listen to the 'shout' event
 let ul = document.getElementById('msg-list');        // list of messages.
 let name = document.getElementById('name');          // name of message sender
 let msg = document.getElementById('msg');            // message input field
+let vc = document.getElementById('video-container');
 
 // "listen" for the [Enter] keypress event to send a message:
 msg.addEventListener('keypress', function (event) {
@@ -49,17 +68,17 @@ msg.addEventListener('keypress', function (event) {
 });
 
 window.addEventListener("beforeunload", function (e) {
-  channel.push("leave", { reason: "bye"});
+  channel.push("leave", { reason: "bye" });
 });
 
 let edit_button = document.getElementById("save-button");
 
 edit_button.addEventListener("click", function (e) {
-  channel.push("edit:name", {name: name.value});
+  channel.push("edit:name", { name: name.value });
 });
 
 edit_button.addEventListener("keypress", function (e) {
-  if(event.keyCode == 13 && edit_button.value.length > 0) {
-    channel.push("edit:name", {name: name.value});
+  if (event.keyCode == 13 && edit_button.value.length > 0) {
+    channel.push("edit:name", { name: name.value });
   }
 });

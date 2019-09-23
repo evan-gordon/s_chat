@@ -1,8 +1,25 @@
 <!-- The list of messages will appear here: -->
 <div class="flex-row-container">
+  <!-- Other stuff -->
   <div class="flex-row" style="min-width: 50px">
-    <!-- Other stuff -->
+    
+    
+    
   </div>
+  <!-- Video player-->
+  <div id="video-container" class="flex-row" style="flex: 1; overflow: hidden;">
+    <%# <iframe id="youtube-player" src="https://www.youtube.com/embed/mZqTP5AnFRg" 
+      frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
+      allowfullscreen></iframe> %>
+    <li>
+      <ul>Useful Commands</ul>
+      <ul>/watch -url-</ul>
+      <ul>/vote_for -url-</ul>
+      <ul>/vote -yes or no-</ul>
+    </li>
+  </div>
+  
+
   <div class="chat-bar flex-row">
     <!-- Chat messages -->
     <div class='flex-column overflow-box'>

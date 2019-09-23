@@ -1,4 +1,5 @@
 defmodule Chat.Helpers do
+  require Logger
   @valid_hosts Application.fetch_env!(:chat, :hosts)
 
   def validate_url(url) do
@@ -15,10 +16,23 @@ defmodule Chat.Helpers do
         {:error, "No path"}
 
       _ ->
-        if(parsed_url.host not in @valid_hosts) do
-          {:error, "Host not supported"}
-        else
+        is_valid =
+          Enum.reduce(@valid_hosts, false, fn host, acc ->
+            case String.contains?(parsed_url.host, host) do
+              true -> true
+              _ -> acc
+            end
+          end)
+
+        if(is_valid) do
           {:ok, url}
+        else
+          Logger.debug("host_not_supported",
+            parsed_url: inspect(parsed_url),
+            supported_hosts: @valid_hosts
+          )
+
+          {:error, "Host not supported"}
         end
     end
   end

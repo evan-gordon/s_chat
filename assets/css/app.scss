@@ -1,12 +1,28 @@
-/* This file is for your main application css. */
-/* Custom page header */
-.full-page {
+// This file is for your main application css.
+html, body {
   margin: 0;
   padding: 0;
   height: 100%;
-  max-height: 100%;
+  width: 100%;
+  overflow: hidden;
 }
 
+b, li {
+  word-wrap: break-word;
+}
+
+/* Main marketing message */
+.jumbotron {
+  text-align: center;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+/* Supporting marketing content */
+.marketing {
+  margin: 35px 0;
+}
+
+/* Custom page header */
 .header {
   position: fixed;
   left: 0;
@@ -18,10 +34,23 @@
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  min-height: 52px;
   height: 52px;
   background-color: #8a25b1;
   border-bottom: 1px solid #e5e5e5;
+}
+
+.reactive-container {
+  padding-top: 52px;
+  margin: 0; 
+  height: 100%;
+  box-sizing: border-box;
+}
+
+iframe {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%
 }
 
 .logo {
@@ -38,17 +67,19 @@
   margin: 0;
   padding-left: 5px;
   margin-left: auto;
-  min-width: 275px;
-  max-width: 275px;;
+  min-width: 285px;
+  max-width: 285px;;
   display: flex;
   flex-direction: column;
   border-left: 1px solid #e5e5e5;
   justify-content: space-between;
+  overflow-y: hidden !important;
 }
 
 .overflow-box {
-  padding: 10px;
+  padding: 5px;
   flex-grow: 1;
+  overflow: auto;
 }
 
 .chat-feed {
