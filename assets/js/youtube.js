@@ -1,6 +1,12 @@
 export var player = null;
 
-export function loadYTPlayerApi() {
+export function initYTPlayer(containerElement, videoID, channel) {
+  loadYTPlayerApi();
+  createYTIframe(containerElement, videoID);
+  createYTPlayer(channel);
+}
+
+function loadYTPlayerApi() {
   var tag = document.createElement("script");
   tag.src = "https://www.youtube.com/iframe_api";
   tag.async = "";
@@ -8,7 +14,7 @@ export function loadYTPlayerApi() {
   firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 }
 
-export function createYTIframe(containerElement, videoID) {
+function createYTIframe(containerElement, videoID) {
   console.log("adding youtube video to page");
   var iframe = document.createElement("iframe");
   iframe.id = "video-player";
@@ -19,7 +25,7 @@ export function createYTIframe(containerElement, videoID) {
   containerElement.appendChild(iframe);
 }
 
-export function createYTPlayer(channel) {
+function createYTPlayer(channel) {
   window.onPlayerStateChange = function (event) { }
 
   window.onYouTubeIframeAPIReady = function () {

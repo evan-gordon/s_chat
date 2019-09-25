@@ -2,7 +2,6 @@
 
 ## TODO
 
-* Simultanious video watching - critical
 * Incoming messages are on left side of chat window?
 * Message timestamps
 * Time when read
@@ -22,6 +21,7 @@
 
 ## Completed
 
+* <s>Simultanious youtube video watching</s>
 * <s>Upgrade to phoenix 1.4 - replace brunch w/ webpack</s>
 * <s>voting system, for what to watch</s>
 * <s>Chat as a sidebar</s>

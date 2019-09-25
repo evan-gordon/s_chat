@@ -14,7 +14,7 @@ import "phoenix_html"
 import css from '../css/app.scss';
 
 // Local files
-import { player, loadYTPlayerApi, createYTIframe, createYTPlayer } from "./youtube.js"
+import { player, initYTPlayer } from "./youtube.js"
 import { autoscroll } from "./helpers.js"
 import socket from "./socket"
 
@@ -23,8 +23,6 @@ let name = document.getElementById('name');          // name of message sender
 let msg = document.getElementById('msg');            // message input field
 let vc = document.getElementById('video-container');
 let edit_button = document.getElementById("save-button");
-//var player = null;
-console.log(player);
 
 //setup websocket
 var channel = socket.channel('room:lobby', {}); // connect to chat "room"
@@ -42,9 +40,7 @@ channel.on('shout', function (payload) { // listen to the 'shout' event
       autoscroll();
       break;
     case "video-player":
-      loadYTPlayerApi();
-      createYTIframe(vc, payload["hash"]);
-      createYTPlayer(channel);
+      initYTPlayer(vc, payload["hash"], channel);
       break;
     case "start-player":
       console.log("received start-video")

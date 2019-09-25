@@ -37,6 +37,11 @@ defmodule ChatWeb.RoomChannel do
     {:noreply, socket}
   end
 
+  def handle_info(:start_video, socket) do
+    broadcast(socket, "shout", %{type: "start-player"})
+    {:noreply, socket}
+  end
+
   def handle_cast({:vote_result, map}, socket) do
     if(map[:yes] > map[:no]) do
       map[:link]
@@ -99,7 +104,7 @@ defmodule ChatWeb.RoomChannel do
   end
 
   def handle_in("watch", _payload, socket) do
-    broadcast(socket, "shout", %{type: "start-player"})
+    Process.send_after(self(), :start_video, 3000)
     {:noreply, socket}
   end
 
