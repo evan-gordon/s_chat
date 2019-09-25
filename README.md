@@ -2,24 +2,29 @@
 
 ## TODO
 
-* <s>Upgrade to phoenix 1.4 - replace brunch w/ webpack</s>
-* <s>voting system,</s> for what to watch, maybe more
+* Simultanious video watching - critical
 * Incoming messages are on left side of chat window?
 * Message timestamps
 * Time when read
-* Edit user names button
+* Fix edit username button
+* Voting timer UI bar
 * Emojis
 * Giphy integration
 * Notification sounds
-* <s>Chat as a sidebar</s>
 * Dark and Light themes
-* Rooms at /r
-* Private rooms at /p ?
-* Watch params so i can watch a stream
-* desktop c# app
+* Rooms at `/r`
+* Private rooms at `/p`?
+* Watch params so I can watch a stream
+* desktop app
 * save only last 5 or so messages for a room to database?
-* encrypt chat option!!!
+* encrypt chat option
 * containerize application
+
+## Completed
+
+* <s>Upgrade to phoenix 1.4 - replace brunch w/ webpack</s>
+* <s>voting system, for what to watch</s>
+* <s>Chat as a sidebar</s>
 
 ## To start your Phoenix server
 

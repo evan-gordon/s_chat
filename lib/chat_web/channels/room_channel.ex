@@ -98,6 +98,11 @@ defmodule ChatWeb.RoomChannel do
     {:noreply, socket}
   end
 
+  def handle_in("watch", _payload, socket) do
+    broadcast(socket, "shout", %{type: "start-player"})
+    {:noreply, socket}
+  end
+
   def handle_in("leave", payload, socket) do
     uname = socket.assigns.user_id
     leave("room:lobby", payload, socket)
